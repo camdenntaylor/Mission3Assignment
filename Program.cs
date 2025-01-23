@@ -32,10 +32,22 @@ namespace Mission3Assignment
                     string category = Console.ReadLine();
 
                     Console.WriteLine("Enter the quantity: ");
-                    string quantity = Console.ReadLine();
+
+                    int quantity = int.Parse(Console.ReadLine());
+                    if (quantity < 0)
+                    {
+                        Console.WriteLine("Cannot enter a negative quantity. Please try again");
+                        continue;
+                    }
 
                     Console.WriteLine("What is the expiration date? (mm/dd/yyyy): ");
-                    string expdate = Console.ReadLine();
+                    DateTime expdate;
+
+                    while (!DateTime.TryParse(Console.ReadLine(), out expdate))
+                    {
+                        Console.WriteLine("Invalid date. Please enter the expiration date in the format mm/dd/yyyy:");
+                        continue;
+                    }
 
                     //create new food item with gathered data and add to inventory list
                     FoodItem newfooditem = new FoodItem(name, category, quantity, expdate);
@@ -69,6 +81,11 @@ namespace Mission3Assignment
                 else if (response == "3")
                 {
                     //3. print current list of food items
+                    if (inventory.Count <= 0)
+                    {
+                        Console.WriteLine("\nThere are no items in inventory");
+                    }
+
                     for (int i = 0; i < inventory.Count; i++)
                     {
                         Console.WriteLine($"{inventory[i].Name}-- Category : {inventory[i].Category}, Quantity: {inventory[i].Quantity}, Expiration Date: {inventory[i].Expdate}");

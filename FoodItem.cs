@@ -11,10 +11,10 @@ namespace Mission3Assignment
     {
         public string Name { get; set; }
         public string Category { get; set; }
-        public string Quantity { get; set; }
-        public string Expdate { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Expdate { get; set; }
 
-        public FoodItem(string name, string category, string quantity, string expdate)
+        public FoodItem(string name, string category, int quantity, DateTime expdate)
         {
             Name = name;
             Category = category;
