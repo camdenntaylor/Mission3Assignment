@@ -43,6 +43,7 @@ namespace Mission3Assignment
                     Console.WriteLine("What is the expiration date? (mm/dd/yyyy): ");
                     DateTime expdate;
 
+                    //ensuring the user enters a proper date
                     while (!DateTime.TryParse(Console.ReadLine(), out expdate))
                     {
                         Console.WriteLine("Invalid date. Please enter the expiration date in the format mm/dd/yyyy:");

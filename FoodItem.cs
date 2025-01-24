@@ -14,6 +14,7 @@ namespace Mission3Assignment
         public int Quantity { get; set; }
         public DateTime Expdate { get; set; }
 
+        //assign user input variables to a FoodItem object
         public FoodItem(string name, string category, int quantity, DateTime expdate)
         {
             Name = name;
